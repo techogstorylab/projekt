@@ -1,31 +1,30 @@
 ---
+export async function getStaticPaths() {
 
-// Nu skal vi have ting fra SupaBase ind i astro
-// fetch returnerer et respons, herunder skal vi have det fra vores Supabase ind. 
-// For at sammensætte linket til vores tabel skal vi bruge vores url og vores table
+    const apiUrl = "https://wagbqkqoczjdaqdrzoud.supabase.co/rest/v1/";
+    const equipmentTableName = "Equipment";
 
-const apiUrl = "https://wagbqkqoczjdaqdrzoud.supabase.co/rest/v1/";
-const equipmentTableName = "Equipment";
+    const key = "sb_publishable_VxPIJcea-jmUx0QdDZYbJw_JFJvM2ZO";
 
-// definerer vores key fra supabase 
-const key = "sb_publishable_VxPIJcea-jmUx0QdDZYbJw_JFJvM2ZO";
-
-// laver en konstant med et objekt der indeholder vores key fra supabase, som vi skal bruge til at "låse dataen op" i vores api
-const options = {
-    headers: {
+    const options = {
+        headers: {
         apikey: key
+        }
     }
+
+    const equipmentResponse = await fetch(apiUrl + equipmentTableName, options);
+
+    const equipmentData = await equipmentResponse.json()
+
+  return equipmentData.map((udstyr) => {
+    return {
+      params: { udstyrdetail: udstyr.name },
+      props: { udstyr },
+    };
+  });
 }
 
-// nu skal vi sammensætte apiUrl og vores tablename
-// vi bruger await i stedet for then.then, det er blot en anden metode 
-// Med await siger vi “det er først når du har hentet alt dataen ind at du skal gøre alt det der står under fetchen”
-// tilføjer vores options som er et argument til vores fetch, options indeholder vores key
-const equipmentResponse = await fetch(apiUrl + equipmentTableName, options);
-
-// laver vores response om til en json fil
-const equipmentData = await equipmentResponse.json()
-
-// tjekker om der er hul igennem 
-console.log("equipmentData", equipmentData); 
+const { udstyr } = Astro.props;
 ---
+
+<h1>{udstyr.name}</h1>
