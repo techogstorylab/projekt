@@ -1,0 +1,60 @@
+---
+import UdstyrListCard from "../Components/UdstyrListCard.astro";
+
+
+// Nu skal vi have ting fra SupaBase ind i astro
+// fetch returnerer et respons, herunder skal vi have det fra vores Supabase ind. 
+// For at sammensætte linket til vores tabel skal vi bruge vores url og vores table
+
+const apiUrl = "https://wagbqkqoczjdaqdrzoud.supabase.co/rest/v1/";
+const equipmentTableName = "Equipment";
+
+// definerer vores key fra supabase 
+const key = "sb_publishable_VxPIJcea-jmUx0QdDZYbJw_JFJvM2ZO";
+
+// laver en konstant med et objekt der indeholder vores key fra supabase, som vi skal bruge til at "låse dataen op" i vores api
+const options = {
+    headers: {
+        apikey: key
+    }
+}
+
+// nu skal vi sammensætte apiUrl og vores tablename
+// vi bruger await i stedet for then.then, det er blot en anden metode 
+// Med await siger vi “det er først når du har hentet alt dataen ind at du skal gøre alt det der står under fetchen”
+// tilføjer vores options som er et argument til vores fetch, options indeholder vores key
+const equipmentResponse = await fetch(apiUrl + equipmentTableName, options);
+
+// laver vores response om til en json fil
+const equipmentData = await equipmentResponse.json()
+
+// tjekker om der er hul igennem 
+console.log("equipmentData", equipmentData); 
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<header>
+			<h1>Udstyr og tilbehør</h1>
+			<p>Her finder du et bredt udvalg af udstyr, du kan låne. Vælg en kategori, brows vores udstyr, og tjek til slut om udstyret er ledigt, og smut så derefter ned til os i labbet og lån det!</p>
+		</header>
+		
+		<section>
+			<article>
+				{
+					equipmentData.map ((udstyr) => {
+						return <UdstyrListCard data={udstyr}/>
+					})
+				}
+			</article>
+		</section>
+	</body>
+</html>
