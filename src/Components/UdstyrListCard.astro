@@ -1,5 +1,7 @@
 ---
 const {data} = Astro.props;
+
+// HUSK at importere global css
 ---
 
 <!-- Vi filtrere efter navn, fordi vi ved at det er unikt -->
@@ -20,6 +22,42 @@ const {data} = Astro.props;
        -->
     <a href=`/udstyr/${data.name}`>
     <img src={data.image} alt={data.name}>
-    <h3>{data.name}</h3>
+    <p class="subheader">{data.name}</p>
     </a>
 </article>
+
+
+<style>
+    article{
+        width: 400px;
+        height: auto;
+        background-color: pink;
+        display: grid;
+        grid-template-rows: 12fr 0.5fr;
+        margin-bottom: 40px;
+        justify-self: center;
+        box-shadow: 6px 6px blue;
+        border: 1px solid blue;
+        border-radius: 3%;
+        padding: 5px;
+    }
+
+    img{
+        width: 100%;
+        grid-row: 1;
+        border-radius: 3%;
+    }
+
+    a{
+        display: block;
+    }
+
+    .subheader {
+        display: flex;
+        align-content: center;
+        grid-row: 2;
+        padding: 5px;
+    }
+
+
+</style>
