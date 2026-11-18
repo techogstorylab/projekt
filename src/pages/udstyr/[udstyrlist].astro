@@ -1,6 +1,7 @@
 ---
+
 // Nu skal vi have ting fra SupaBase ind i astro
-// fetch returnerer et respons, herunder skal vi have det fra vores Suapbase ind. 
+// fetch returnerer et respons, herunder skal vi have det fra vores Supabase ind. 
 // For at sammensætte linket til vores tabel skal vi bruge vores url og vores table
 
 const apiUrl = "https://wagbqkqoczjdaqdrzoud.supabase.co/rest/v1/";
@@ -9,7 +10,7 @@ const equipmentTableName = "Equipment";
 // definerer vores key fra supabase 
 const key = "sb_publishable_VxPIJcea-jmUx0QdDZYbJw_JFJvM2ZO";
 
-// laver en konstant med et objekt der indehodler vores key fra supabase, som vi skal bruge til at "låse dataen op" i vores api
+// laver en konstant med et objekt der indeholder vores key fra supabase, som vi skal bruge til at "låse dataen op" i vores api
 const options = {
     headers: {
         apikey: key
@@ -28,17 +29,3 @@ const equipmentData = await equipmentResponse.json()
 // tjekker om der er hul igennem 
 console.log("equipmentData", equipmentData); 
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>

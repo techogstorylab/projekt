@@ -1,0 +1,38 @@
+---
+import UdstyrCategoryCard from "../Components/UdstyrCategoryCard.astro";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<header>
+			<h1>Udstyr og tilbehør</h1>
+			<p>Her finder du et bredt udvalg af udstyr, du kan låne. Vælg en kategori, brows vores udstyr, og tjek til slut om udstyret er ledigt, og smut så derefter ned til os i labbet og lån det!</p>
+		</header>
+		
+		<section>
+			<article>
+				<UdstyrCategoryCard category="Foto, video, lyd og lys" beskrivelse="Find alt fra kameraer, objektiver og stabilisatorer til tripods, mikrofoner og lysudstyr."/>
+			</article>
+
+			<article>
+				<UdstyrCategoryCard category="Tilbehør til udstyr" beskrivelse="Få det meste ud af dit udstyr med et udvalg af kabler, adaptere, strømforsyninger og lagringsmuligheder."/>
+			</article>
+
+			<article>
+				<UdstyrCategoryCard category="Teknologi og innovation" beskrivelse="Dyk ned i den nyeste teknologi med alt fra virtual reality og IoT til kunstig intelligens og programmerbare enheder."/>
+			</article>
+
+			<article>
+				<UdstyrCategoryCard category="Mobile enheder og computere" beskrivelse="Uanset om du skal bruge en smartphone, tablet eller computer, finder du her digitale værktøjer til dine projekter."/>
+			</article>
+		</section>
+	</body>
+</html>
