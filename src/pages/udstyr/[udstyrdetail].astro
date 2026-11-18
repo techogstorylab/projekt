@@ -1,4 +1,14 @@
 ---
+
+// herinde skal vi for at astro kan lave flere udnersider ud fra én 
+
+// det her er taget fra getstaticpath link (ligger i min ek mappe under astro)
+// her står der async, for hvis man vil bruge await i en function skal man tilføje async (det hedder jo async await)
+// der skal skrives en funktion som skal eksporteres, og den funktion er async
+
+// inde i funktionen skal vi hive alt dataen ned igen og mappe over det array vi får, så derfor kopierer vi hele den kodedel 
+// hvor vi hentede vores data inde i index herind i funktionen
+
 export async function getStaticPaths() {
 
     const apiUrl = "https://wagbqkqoczjdaqdrzoud.supabase.co/rest/v1/";
@@ -16,6 +26,12 @@ export async function getStaticPaths() {
 
     const equipmentData = await equipmentResponse.json()
 
+
+     // det er equipmentData (den konstant vores json filer er i) der skal mappes over
+    // vi skriver udstyrdetail, fordi den refererer til navnet vi gav den inde i []
+    // i params skriver vi hvad siden hedder og hvad den skal komme til at hedde - params: { udstyrdetail: udstyr.name }
+    // det der er til venstre for : i params er altså den side vi refererer til
+    // det der står til højre for : i params er det der kommer til at stå i url´en når man går ind på siden 
   return equipmentData.map((udstyr) => {
     return {
       params: { udstyrdetail: udstyr.name },

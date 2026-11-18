@@ -5,6 +5,19 @@ const {data} = Astro.props;
 <!-- Vi filtrere efter navn, fordi vi ved at det er unikt -->
 
 <article>
+     <!-- fordi vi har ændrer vores props til at være hele objektet ved at skrive data, 
+         skal vi lige specificerer hvor vi skal finde vores enkelte variabler ved at bruge dot notation til at skrive data.image -->
+
+     <!-- det første step til at lave vores undersider er at tilføje et link. 
+       Vi vil gerne have en mappe hvor vi har vores undersider, så derfor skriver vi "/"
+       og så vil vi gerne have de peger til hver deres side
+       det er vigtigt at hver side har hver deres unikke navn, og det vi indtil videre ved er unikt er det name hvert objekt har
+       så vi skriver `/udstyr/${data.name}`
+       så nu står der; når vi klikker på linket kommer vi til roden og så ind i en mappe der hedder udstyr og ind på en side med et unikt name
+       
+       næste skridt er vi under pages laver e nfiolder vi kalder udstyr, som vi skal have lavet vores single pages i, 
+       vi laver kun én og så sørger astro for at det bliver flere sider for os ved at vi tilføjer [] rundt om navnet (gå derind nu)
+       -->
     <a href=`/udstyr/${data.name}`>
     <img src={data.image} alt={data.name}>
     <h3>{data.name}</h3>
