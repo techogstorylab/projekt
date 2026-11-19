@@ -27,6 +27,8 @@
 
   --turkis-200: #9efffe;
 
+  --gradient-white-pink: linear-gradient(180deg, #fff0f0 37%, #ffb5c2 100%);
+
   /***************** font-family ****************/
   --font-serif: "Oso Serif", serif;
   --font-sans: "Oso Sans", sans-serif;
