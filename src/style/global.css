@@ -143,4 +143,13 @@ menu {
 .dropbtn {
   font-family: var(--font-sans);
   font-weight: var(--font-weight-light-italic);
+  font-size: var(--copy-size);
+  letter-spacing: var(--spacing-3);
+}
+
+.dropdown-content a {
+  font-family: var(--font-serif);
+  font-style: var(--font-style-italic);
+  font-size: var(--menu-size);
+  letter-spacing: var(--spacing-8);
 }
