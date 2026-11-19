@@ -59,6 +59,13 @@
   --height-140: 1.4;
 }
 
+/***************** reset ****************/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /***************** h1 ****************/
 h1 {
   font-family: var(--font-sans);
@@ -129,4 +136,9 @@ menu {
   font-weight: var(--font-weight-light-italic);
   font-size: var(--menu-size);
   letter-spacing: var(--spacing-8);
+}
+/***************** menu knap ****************/
+.dropbtn {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-light-italic);
 }
