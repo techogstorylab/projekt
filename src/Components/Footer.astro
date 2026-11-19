@@ -1,0 +1,98 @@
+---
+import "../style/global.css";
+---
+<footer>
+    
+<!-- Footer wave -->
+<img src="/assets/illustrationer-elementer/boelge2.svg" alt="" class="footer_wave"/>
+
+
+<!-- EK Logo -->
+<a href="/" aria-label="Forside"> 
+    <img src="/assets/logo_footer.svg" alt="EK logo"/>
+</a>
+
+<!-- contact info -->
+<div class="footer_contact">
+    <p><span>Telefon:</span>46 46 04 42</p>
+    <p><span>Email:</span>techandstorylab@ek.dk</p>
+</div>
+
+</footer>
+
+<style>
+
+/* footer */ 
+footer {
+    background-color: var(--koral-300); 
+    position: relative;
+    min-height: 300px;
+    margin: 300px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 70px;
+}
+
+/* EK Logo */ 
+footer a {
+    display: block;
+    width: 230px;
+    z-index: 2;
+}
+footer a img {
+    width: 100%;
+    height: auto;
+}
+
+/* Footer wave */ 
+.footer_wave {
+    position: absolute;
+    width: 500px;
+    height: auto;
+    right: 0%;
+    top: -272px;
+}
+
+/* Contact */ 
+.footer_contact p {
+    margin: 10px 5px 15px;
+}
+.footer_contact span {
+    font-weight: 700;
+    padding-right: 5px;
+}
+
+/* MOBIL VERSION */
+@media (max-width: 768px) {
+
+    /* Footer */
+    footer {
+        min-height: 100px;
+        padding: 40px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    /* EK Logo */
+    footer a {
+        width: 100px;
+    }
+
+    /* Footer wave */
+    .footer_wave {
+        width: 200px;
+        height: auto;
+        right: 0%;
+        top: -30px;
+    }
+
+    .footer_contact p {
+        font-size: 12px;
+        margin: 5px 0px 10px;
+    }
+}
+</style>
