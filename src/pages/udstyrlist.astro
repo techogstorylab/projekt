@@ -1,4 +1,6 @@
 ---
+import Layout from "../layout/Layout.astro";
+
 import UdstyrListCard from "../Components/UdstyrListCard.astro";
 
 
@@ -34,137 +36,127 @@ console.log("equipmentData", equipmentData);
 const sortOrder = ["Kamera", "GoPro", "Andet"];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Udstyrliste</title>
-	</head>
-	<body>
+<Layout title="Foto, video, lyd og lys">
+	<section>
+		<div class="hero">
+			<h1>
+				Foto, video, lyd og lys<br>
+				<span>Udstyr</span>
+			</h1>
+			<p class="subheader">Her finder du alt fra kameraer, objektiver og stabilisatorer til diverse tripods, mikrofoner og lysudstyr. </p>
+		</div>
+		<img src="" alt="">
+	</section>
+	
+	<section>
+		<img src="" alt="">
+		<div class="se_ledighed_kasse">
+			<h2>
+				<span>Se ledighed af</span><br>
+				udstyr til foto og video
+			</h2>
+			<p>I vores bookingmodul kan du tjekke ledigheden af vores foto-, lyd- og videoudstyr. Men for at booke udstyret skal du dog komme forbi os i Tech & Story Lab. Vi står altid klar til at hjælpe dig og vejlede dig i, hvilket udstyr der kan bruges til dit projekt. </p>
+		</div>
+	</section>
+	
+	<section class="udstyr_liste">
 		<section>
-			<div class="hero">
-				<h1>
-					Foto, video, lyd og lys<br>
-					<span>Udstyr</span>
-				</h1>
-				<p class="subheader">Her finder du alt fra kameraer, objektiver og stabilisatorer til diverse tripods, mikrofoner og lysudstyr. </p>
+			<div>
+				<h2>Kamera</h2>
+				<p>Vi har et bredt udvalg af både spejlreflekskameraer (DSLR) og spejlløse kameraer samt forskellige objektiver i vores samling. Du kan desuden låne diverse udstyr fra GoPro og prøve vores 360°-kameraer.</p>
 			</div>
-			<img src="" alt="">
+	
+			<article>
+			<!-- tidligere har vi sendt enkelte variabler med i vores komponent ved at sige <Card {animal.name}/> fx, 
+				her vælger vi at sende hele objektet med i stedet for enkelte variabler, ved at sige <Card data={animal}/>
+				gå idn i UdstyrListCard for uddybning af næste skridt for at lave undersider  -->
+				{
+					// vi starter med at filtrere efter subcategory ved at lave en funktion hvor vi siger at den skal vise dem der har subcategory 1.1 ( === betyder at det skal være præcis lig med, og der skal være "" rundt om, fordi at det er en string).
+					// siden sorterer vi efter vores brugergenererede sortering.
+					// .map laver et nyt array af den filtrerede og sorterede data, og for hvert objekt i det array laver den et UdstyrListCard komponent (der ser ud som vi har defineret i UdstyrListCard.astro).
+					equipmentData
+					.filter((udstyr) => udstyr.subcategory === "1.1")
+					.sort((a, b) => sortOrder.indexOf(a.type) - sortOrder.indexOf(b.type))
+					.map ((udstyr) => {
+						return <UdstyrListCard data={udstyr}/>
+					})
+				}
+			</article>
 		</section>
-
+		
 		<section>
-			<img src="" alt="">
-			<div class="se_ledighed_kasse">
-				<h2>
-					<span>Se ledighed af</span><br>
-					udstyr til foto og video
-				</h2>
-				<p>I vores bookingmodul kan du tjekke ledigheden af vores foto-, lyd- og videoudstyr. Men for at booke udstyret skal du dog komme forbi os i Tech & Story Lab. Vi står altid klar til at hjælpe dig og vejlede dig i, hvilket udstyr der kan bruges til dit projekt. </p>
+			<div>
+				<h2>Kameraobjektiver</h2>
 			</div>
+		
+			<article>
+				{
+					// på alle andre kategorier vil vi sortere alfabetisk. localeCompare er en indbygget Javascript funktion, der sammenligner to ting og sorterer dem efter alfabetisk rækkefølge. Ved at skrive .type siger at den skal filtrere efter det navn vi har sat i type i supabase.
+					equipmentData
+					.filter((udstyr) => udstyr.subcategory === "1.2")
+					.sort((a, b) => a.type.localeCompare(b.type))
+					.map ((udstyr) => {
+						return <UdstyrListCard data={udstyr}/>
+					})
+				}
+			</article>
 		</section>
-
-		<section class="udstyr_liste">
-			<section>
-				<div>
-					<h2>Kamera</h2>
-					<p>Vi har et bredt udvalg af både spejlreflekskameraer (DSLR) og spejlløse kameraer samt forskellige objektiver i vores samling. Du kan desuden låne diverse udstyr fra GoPro og prøve vores 360°-kameraer.</p>
-				</div>
-
-				<article>
-				<!-- tidligere har vi sendt enkelte variabler med i vores komponent ved at sige <Card {animal.name}/> fx, 
-					her vælger vi at sende hele objektet med i stedet for enkelte variabler, ved at sige <Card data={animal}/>
-					gå idn i UdstyrListCard for uddybning af næste skridt for at lave undersider  -->
-					{
-						// vi starter med at filtrere efter subcategory ved at lave en funktion hvor vi siger at den skal vise dem der har subcategory 1.1 ( === betyder at det skal være præcis lig med, og der skal være "" rundt om, fordi at det er en string).
-						// siden sorterer vi efter vores brugergenererede sortering.
-						// .map laver et nyt array af den filtrerede og sorterede data, og for hvert objekt i det array laver den et UdstyrListCard komponent (der ser ud som vi har defineret i UdstyrListCard.astro).
-						equipmentData
-						.filter((udstyr) => udstyr.subcategory === "1.1")
-						.sort((a, b) => sortOrder.indexOf(a.type) - sortOrder.indexOf(b.type))
-						.map ((udstyr) => {
-							return <UdstyrListCard data={udstyr}/>
-						})
-					}
-				</article>
-			</section>
-
-			<section>
-				<div>
-					<h2>Kameraobjektiver</h2>
-				</div>
-
-				<article>
-					{
-						// på alle andre kategorier vil vi sortere alfabetisk. localeCompare er en indbygget Javascript funktion, der sammenligner to ting og sorterer dem efter alfabetisk rækkefølge. Ved at skrive .type siger at den skal filtrere efter det navn vi har sat i type i supabase.
-						equipmentData
-						.filter((udstyr) => udstyr.subcategory === "1.2")
-						.sort((a, b) => a.type.localeCompare(b.type))
-						.map ((udstyr) => {
-							return <UdstyrListCard data={udstyr}/>
-						})
-					}
-				</article>
-			</section>
-
-			<section>
-				<div>
-					<h2>Kamerastabilisatorer</h2>
-					<p>Vi har kameraer med indbygget stabilisator som fx DJI Osmo Pocket samt digitale og analoge stabilisatorer til både kameraer og mobiltelefoner. Til de øvede anbefaler vi DJI Ronin-S og DJI Ronin-M.</p>
-				</div>
-
-				<article>
-					{
-						equipmentData
-						.filter((udstyr) => udstyr.subcategory === "1.3")
-						.sort((a, b) => a.type.localeCompare(b.type))
-						.map ((udstyr) => {
-							return <UdstyrListCard data={udstyr}/>
-						})
-					}
-				</article>
-			</section>
-
-			<section>
-				<div>
-					<h2>Tripods, monopods og andre stativer</h2>
-					<p>Hvis du ønsker større kontrol med dine billeder og undgå slørede videooptagelser, bør du overveje at bruge en tripod. Vi har forskellige størrelser alt efter om du bruger et professionelt kamera eller din egen mobiltelefon. I vores samling finder du også ekstraudstyr, som gør det nemmere at arbejde med fx DJI Osmo Pocket eller et af vores GoPro-kameraer.</p>
-				</div>
-
-				<article>
-					{
-						equipmentData
-						.filter((udstyr) => udstyr.subcategory === "1.4")
-						.sort((a, b) => a.type.localeCompare(b.type))
-						.map ((udstyr) => {
-							return <UdstyrListCard data={udstyr}/>
-						})
-					}
-				</article>
-			</section>
-
-			<section>
-				<div>
-					<h2>Lyd og tilbehør</h2>
-					<p>Vi har et bredt udvalg af lydudstyr til, når du skal optage interviews, podcasts, kampagnevideoer eller voice-overs. Du kan fx låne en af vores RØDE SmartLavs (knaphulsmikrofoner), som er velegnet til interviews eller et trådløst RØDE Link Filmmaker Kit til din næste kampagnevideo.</p>
-				</div>
-
-				<article>
-					{
-						equipmentData
-						.filter((udstyr) => udstyr.subcategory === "1.5")
-						.sort((a, b) => a.type.localeCompare(b.type))
-						.map ((udstyr) => {
-							return <UdstyrListCard data={udstyr}/>
-						})
-					}
-				</article>
-			</section>
+		
+		<section>
+			<div>
+				<h2>Kamerastabilisatorer</h2>
+				<p>Vi har kameraer med indbygget stabilisator som fx DJI Osmo Pocket samt digitale og analoge stabilisatorer til både kameraer og mobiltelefoner. Til de øvede anbefaler vi DJI Ronin-S og DJI Ronin-M.</p>
+			</div>
+	
+			<article>
+				{
+					equipmentData
+					.filter((udstyr) => udstyr.subcategory === "1.3")
+					.sort((a, b) => a.type.localeCompare(b.type))
+					.map ((udstyr) => {
+						return <UdstyrListCard data={udstyr}/>
+					})
+				}
+			</article>
 		</section>
-	</body>
-</html>
+		
+		<section>
+			<div>
+				<h2>Tripods, monopods og andre stativer</h2>
+				<p>Hvis du ønsker større kontrol med dine billeder og undgå slørede videooptagelser, bør du overveje at bruge en tripod. Vi har forskellige størrelser alt efter om du bruger et professionelt kamera eller din egen mobiltelefon. I vores samling finder du også ekstraudstyr, som gør det nemmere at arbejde med fx DJI Osmo Pocket eller et af vores GoPro-kameraer.</p>
+			</div>
+	
+			<article>
+				{
+					equipmentData
+					.filter((udstyr) => udstyr.subcategory === "1.4")
+					.sort((a, b) => a.type.localeCompare(b.type))
+					.map ((udstyr) => {
+						return <UdstyrListCard data={udstyr}/>
+					})
+				}
+			</article>
+		</section>
+		
+		<section>
+			<div>
+				<h2>Lyd og tilbehør</h2>
+				<p>Vi har et bredt udvalg af lydudstyr til, når du skal optage interviews, podcasts, kampagnevideoer eller voice-overs. Du kan fx låne en af vores RØDE SmartLavs (knaphulsmikrofoner), som er velegnet til interviews eller et trådløst RØDE Link Filmmaker Kit til din næste kampagnevideo.</p>
+			</div>
+	
+			<article>
+				{
+					equipmentData
+					.filter((udstyr) => udstyr.subcategory === "1.5")
+					.sort((a, b) => a.type.localeCompare(b.type))
+					.map ((udstyr) => {
+						return <UdstyrListCard data={udstyr}/>
+					})
+				}
+			</article>
+		</section>
+	</section>
+</Layout>
 
 <style>
 	* {
@@ -208,8 +200,8 @@ const sortOrder = ["Kamera", "GoPro", "Andet"];
 	.se_ledighed_kasse {
 		display: table;
 		margin-left: auto;
-		background-color: pink;
-		border: solid 2px rgb(252, 46, 170);
+		background-color: var(--pink-100);
+		border: solid 2px var(--pink-500);
 		padding: 50px;
 	}
 </style>
