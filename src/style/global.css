@@ -1,0 +1,132 @@
+:root {
+  /***************** colors ****************/
+  --color-sort: #252525;
+  --color-hvid: #fcfcfc;
+  --color-grey: #cfd2d2;
+  --color-gul-50: #fffef8;
+
+  --koral-100: #ffe3e5;
+  --koral-300: #ff8d9d;
+  --koral-500: #f83b5e;
+
+  --pink-50: #fef1fa;
+  --pink-100: #fee5f7;
+  --pink-200: #ffcbf2;
+  --pink-400: #ff66d1;
+  --pink-500: #fc38bb;
+  --pink-600: #ec169a;
+  --pink-900: #8d0e57;
+  --pink-950: #6d003e;
+
+  --blue-200: #b9deff;
+  --blue-300: #89caff;
+  --blue-400: #52adff;
+  --blue-500: #2a89ff;
+  --blue-700: #0c53ed;
+  --blue-800: #1142bc;
+
+  --turkis-200: #9efffe;
+
+  /***************** font-family ****************/
+  --font-serif: "Oso Serif", serif;
+  --font-sans: "Oso Sans", sans-serif;
+
+  /***************** font-style ****************/
+  --font-style-italic: italic;
+
+  /***************** font-weight ****************/
+  --font-weight-light-italic: 300;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /***************** font-size ****************/
+  --h1-size-sans: 4.3rem;
+  --h1-size-serif: 3.4rem;
+  --h2-size: 2.75rem;
+  --subheader-size: 1.75rem;
+  --copy-size: 1.125rem;
+  --button-size-1: 1rem;
+  --button-size-2: 1.125rem;
+  --menu-size: 1.5rem;
+
+  /***************** letter spacing ****************/
+  --spacing-3: 0.03em;
+  --spacing-8: 0.08em;
+
+  /***************** line height ****************/
+  --height-125: 1.25;
+  --height-140: 1.4;
+}
+
+/***************** h1 ****************/
+h1 {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--h1-size-sans);
+}
+h1 span {
+  font-family: var(--font-serif);
+  font-style: var(--font-style-italic);
+  font-weight: var(--font-weight-light-italic);
+  font-size: var(--h1-size-serif);
+  letter-spacing: var(--spacing-8);
+}
+
+/***************** h2 ****************/
+.h2 {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--h2-size);
+}
+
+.h2 span {
+  font-family: var(--font-serif);
+  font-style: var(--font-style-italic);
+  font-weight: var(--font-weight-light-italic);
+  letter-spacing: var(--spacing-8);
+}
+
+/***************** subheader ****************/
+.subheader {
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-light-italic);
+  font-size: var(--subheader-size);
+  letter-spacing: var(--spacing-3);
+  line-height: var(--height-125);
+}
+
+/***************** p copy ****************/
+p {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-light-italic);
+  font-size: var(--copy-size);
+  letter-spacing: var(--spacing-3);
+  line-height: var(--height-140);
+}
+
+/***************** p semibold ****************/
+p span {
+  font-weight: var(--font-weight-semibold);
+}
+
+/***************** button ****************/
+button {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--button-size-1);
+  letter-spacing: var(--spacing-3);
+}
+
+button span {
+  font-size: var(--button-size-2);
+}
+
+/***************** menu knap ****************/
+menu {
+  font-family: var(--font-serif);
+  font-style: var(--font-style-italic);
+  font-weight: var(--font-weight-light-italic);
+  font-size: var(--menu-size);
+  letter-spacing: var(--spacing-8);
+}

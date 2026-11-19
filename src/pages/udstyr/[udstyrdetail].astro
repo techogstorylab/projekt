@@ -27,7 +27,7 @@ export async function getStaticPaths() {
     const equipmentData = await equipmentResponse.json()
 
 
-     // det er equipmentData (den konstant vores json filer er i) der skal mappes over
+    // det er equipmentData (den konstant vores json filer er i) der skal mappes over
     // vi skriver udstyrdetail, fordi den refererer til navnet vi gav den inde i []
     // i params skriver vi hvad siden hedder og hvad den skal komme til at hedde - params: { udstyrdetail: udstyr.name }
     // det der er til venstre for : i params er altså den side vi refererer til

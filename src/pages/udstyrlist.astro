@@ -53,6 +53,31 @@ console.log("equipmentData", equipmentData);
            		 her vælger vi at sende hele objektet med i stedet for enkelte variabler, ved at sige <Card data={animal}/>
            		 gå idn i UdstyrListCard for uddybning af næste skridt for at lave undersider  -->
 				{
+					
+
+					equipmentData.map ((udstyr) => {
+						return <UdstyrListCard data={udstyr}/>
+					})
+				}
+			</article>
+			<article>
+			<!-- tidligere har vi sendt enkelte variabler med i vores komponent ved at sige <Card {animal.name}/> fx, 
+           		 her vælger vi at sende hele objektet med i stedet for enkelte variabler, ved at sige <Card data={animal}/>
+           		 gå idn i UdstyrListCard for uddybning af næste skridt for at lave undersider  -->
+				{
+					equipmentData.map ((udstyr) => {
+						return <UdstyrListCard data={udstyr}/>
+					})
+				}
+			</article>
+			<article>
+			<!-- tidligere har vi sendt enkelte variabler med i vores komponent ved at sige <Card {animal.name}/> fx, 
+           		 her vælger vi at sende hele objektet med i stedet for enkelte variabler, ved at sige <Card data={animal}/>
+           		 gå idn i UdstyrListCard for uddybning af næste skridt for at lave undersider  -->
+				{
+
+
+
 					equipmentData.map ((udstyr) => {
 						return <UdstyrListCard data={udstyr}/>
 					})
