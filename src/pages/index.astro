@@ -3,9 +3,73 @@ import Layout from "../layout/Layout.astro";
 ---
 
 <Layout title="Forside">
-
+	<div class="index_top">
+		<div class="index_top-left">
+			<h1><span>Kom i</span></h1>
+			<h1 class="fed_h1">Tech & Story Lab</h1>
+			<p class="subheader">- et værksted for alle der vil lege og lære</p>
+			<div>
+				<img class="splat" src="../assets/illustrationer-elementer/splat_ny.svg" alt="">
+			</div>
+		</div>
+		<div>
+			<!-- <img class="forside1" src="../assets/billeder/forside1.png" alt="">
+			<img class="forside2" src="../assets/billeder/forside2.png" alt="">
+			<img class="forside3" src="../assets/billeder/forside3.png" alt=""> -->
+		</div>
+	</div>
 </Layout>
 
 <style>
-	
+	/* .index_top {
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	} */
+
+	.index_top-left {
+		position: relative;
+	}
+
+	.fed_h1, span, p {
+		position: relative;
+		z-index: 2;
+		color: var(--color-hvid);
+	}
+
+	span {
+		margin-left: 20px;
+		top: 5rem;
+		font-size: 2rem;
+	}
+
+	.fed_h1 {
+		font-size: 2rem;
+		margin-left: 55px;
+		top: 4rem;
+	}
+
+	p {
+		font-size: 1rem;
+		top: 4rem;
+		margin-left: 20px;
+	}
+
+	.splat {
+		position: absolute;
+		z-index: 1;
+		width: 600px;
+		left: -10rem;
+		top: 20px;
+	}
+
+	img {
+		position: absolute;
+		z-index: 2;
+		width: 30%;
+	}
+
+	.forside1 {
+
+	}
 </style>
