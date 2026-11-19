@@ -62,10 +62,15 @@
 }
 
 /***************** reset ****************/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: clip;
 }
 
 /***************** h1 ****************/
@@ -73,27 +78,32 @@ h1 {
   font-family: var(--font-sans);
   font-weight: var(--font-weight-regular);
   font-size: var(--h1-size-sans);
+  line-height: 1.2;
 }
+
 h1 span {
   font-family: var(--font-serif);
   font-style: var(--font-style-italic);
   font-weight: var(--font-weight-light-italic);
   font-size: var(--h1-size-serif);
   letter-spacing: var(--spacing-8);
+  line-height: 1.2;
 }
 
 /***************** h2 ****************/
-.h2 {
+h2 {
   font-family: var(--font-sans);
   font-weight: var(--font-weight-regular);
   font-size: var(--h2-size);
+  line-height: 1.2;
 }
 
-.h2 span {
+h2 span {
   font-family: var(--font-serif);
   font-style: var(--font-style-italic);
   font-weight: var(--font-weight-light-italic);
   letter-spacing: var(--spacing-8);
+  line-height: 1.2;
 }
 
 /***************** subheader ****************/
@@ -112,6 +122,7 @@ p {
   font-size: var(--copy-size);
   letter-spacing: var(--spacing-3);
   line-height: var(--height-140);
+  text-wrap: pretty;
 }
 
 /***************** p semibold ****************/
