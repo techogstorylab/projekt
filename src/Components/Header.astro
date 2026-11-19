@@ -12,10 +12,10 @@ const headLogo = "../assets/logo_header.svg";
     <div class="dropdown">
     <button class="dropbtn">Menu</button>
     <div class="dropdown-content">
-        <a href="#">Studier</a>
-        <a href="#">Udstyr & tilbehør</a>
-        <a href="#">Workshops & events</a>
-        <a href="#">Information om labbet</a>
+        <a href="#"><span>Studier</span></a>
+        <a href="#"><span>Udstyr & tilbehør</span></a>
+        <a href="#"><span>Workshops & events</span></a>
+        <a href="#"><span>Information om labbet</span></a>
     </div>
     </div>
     </div>
@@ -54,10 +54,8 @@ header {
   border: solid 12px var(--color-gul-50);
   box-shadow: 0 0 0 2px var(--koral-500), 3.5px 3.5px 0px 2px var(--koral-300);
   border-radius: 3px;
-  overflow: hidden;
   padding-block: 12px;
   padding-inline: 40px;
-  font-size: 16px;
   cursor: pointer;
 }
 
@@ -67,10 +65,10 @@ header {
   position: absolute;
   background-color: var(--koral-100);
   padding-bottom: 20px;
+  width: max-content;
   right: 0;
   top: 93px;
   border-radius: 3px;
-  padding-inline: 25px 25px;
   box-shadow: 0 0 0 2px var(--koral-500), 3.5px 3.5px 0px 2px var(--koral-300), 0px 0px 10px 0px var(--color-grey);
 }
 
@@ -87,16 +85,22 @@ header {
 /* Links inside dropdown content */
 .dropdown-content a {
   color: var(--color-sort);
-  border-bottom: solid 1px var(--koral-300);
   padding-block: 20px 3px;
-  padding-right: 200px;
+  padding-inline: 25px 25px;
   text-decoration: none;
   display: block;
+}
+
+.dropdown-content a span {
+  display: inline-block;
+  border-bottom: solid 1.35px var(--koral-300);
+  width: 300px;
 }
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   background-color: var(--koral-300);
+  border-radius: 2px;
 }
 
 /* Show the dropdown content on hover */
