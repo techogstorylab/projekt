@@ -126,8 +126,16 @@ p {
 }
 
 /***************** p semibold ****************/
+
 p span {
   font-weight: var(--font-weight-semibold);
+}
+
+/******************* link ********************/
+
+a {
+  text-decoration: none;
+  color: var(--color-sort);
 }
 
 /***************** button ****************/
