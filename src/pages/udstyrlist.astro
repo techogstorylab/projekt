@@ -37,19 +37,21 @@ const sortOrder = ["Kamera", "GoPro", "Andet"];
 ---
 
 <Layout title="Foto, video, lyd og lys">
-	<section>
-		<div class="hero">
+	<section class="hero">
+		<div>
 			<h1>
 				Foto, video, lyd og lys<br>
 				<span>Udstyr</span>
 			</h1>
 			<p class="subheader">Her finder du alt fra kameraer, objektiver og stabilisatorer til diverse tripods, mikrofoner og lysudstyr. </p>
 		</div>
-		<img src="" alt="">
+		<img src="/public/assets/illustrationer-elementer/udstyr.svg" alt="">
 	</section>
 	
-	<section>
-		<img src="" alt="">
+	<section class="se_ledighed">
+		<div class="pink_sirkel">
+			<img src="/public/assets/illustrationer-elementer/gopro.svg" alt="">
+		</div>
 		<div class="se_ledighed_kasse">
 			<h2>
 				<span>Se ledighed af</span><br>
@@ -159,28 +161,50 @@ const sortOrder = ["Kamera", "GoPro", "Andet"];
 </Layout>
 
 <style>
-	* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	}
-
 	p {
-    max-width: 70ch;
+		margin-top: 25px;
 	}
 
 	.hero {
 		margin-left: 200px;
+		margin-top: 125px;
+	
+		display: flex;
+		justify-content: space-between;
+
+		overflow: hidden;
+	}
+
+	.hero p {
+		width: 760px;
+	}
+
+	.hero img {
+		width: 635px;
+
+		position: absolute;
+		right: -180px;
+		top: 180px;
+
+		z-index: -1;
 	}
 
 	h1 {
 		display: inline-block;
-		border-bottom: solid 8px maroon;
 	}
 
 	h1 span {
 		display: block;
-		text-align: end;
+		text-align: right;
+		margin-right: -120px;
+	}
+
+	h1::after {
+		content: "";
+		display: block;
+		width: calc(100% + 120px);
+		height: 8px;
+		background-color: var(--pink-950);
 	}
 
 	.udstyr_liste {
@@ -197,11 +221,45 @@ const sortOrder = ["Kamera", "GoPro", "Andet"];
 		gap: 40px;
 	}
 
+	.se_ledighed {
+		display: flex;
+		align-items: center;
+		position: relative;
+		margin-top: 265px;
+	}
+
+	.pink_sirkel {
+		background-color: var(--pink-200);
+		border: solid 3px var(--pink-500);
+		border-radius: 50%;
+
+		padding: 129px;
+		box-sizing: border-box;
+		display: flex;
+    	justify-content: center;
+    	align-items: center;
+
+		position: absolute;
+		z-index: 3;
+		left: 78px;
+	}
+
+	.pink_sirkel img {
+		height: 235px;
+		aspect-ratio: 1 / 1;
+    	object-fit: contain;
+	}
+
 	.se_ledighed_kasse {
-		display: table;
-		margin-left: auto;
+		align-self: center;
+		height: 383px;
+		margin-left: 25%;
 		background-color: var(--pink-100);
 		border: solid 2px var(--pink-500);
-		padding: 50px;
+		padding-block: 50px;
+		padding-inline: 200px 150px;
+
+		position: relative;
+    	z-index: 2;
 	}
 </style>
