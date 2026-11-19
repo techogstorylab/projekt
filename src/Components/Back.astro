@@ -1,0 +1,34 @@
+---
+
+
+---
+
+<button class="tilbage-pil" aria-label="Gå tilbage"> 
+    <img class="pil" src="/assets/illustrationer-elementer/tilbage.svg" alt="pil du kan trykke på for at komme tilbage til foregående side">
+</button>
+
+<script>
+
+    
+        document.querySelector(".tilbage-pil").addEventListener("click", (event) => {
+        window.history.back();
+        });
+    
+
+</script>
+
+<style>
+
+    .tilbage-pil{
+        border: none;
+        background-color: transparent;
+        margin: 20px;
+    }
+
+    .pil{
+        width: 40px;
+        cursor: pointer;
+    }
+
+
+</style>
