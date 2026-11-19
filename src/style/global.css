@@ -149,6 +149,7 @@ menu {
 
 .dropdown-content a {
   font-family: var(--font-serif);
+  font-weight: var(--font-weight-light-italic);
   font-style: var(--font-style-italic);
   font-size: var(--menu-size);
   letter-spacing: var(--spacing-8);

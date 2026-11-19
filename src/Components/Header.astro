@@ -10,7 +10,23 @@ const headLogo = "../assets/logo_header.svg";
     <div class="flex_header">
     <a href="/"><img src={headLogo} alt="Logo"></a>
     <div class="dropdown">
-    <button class="dropbtn">Menu</button>
+    <button class="dropbtn"><span class="arrow">
+    <svg class="dropbtn-arrow"
+    width="10"
+    height="14"
+    viewBox="0 0 10 16"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M8 2L2 8L8 14"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+    </span>Menu</button>
     <div class="dropdown-content">
         <a href="#"><span>Studier</span></a>
         <a href="#"><span>Udstyr & tilbehør</span></a>
@@ -49,14 +65,21 @@ header {
 
 /* Style the dropdown button */
 .dropbtn {
-    color: var(--pink-950);
+  position: sticky;
+  color: var(--pink-950);
   background-color: var(--koral-100);
   border: solid 12px var(--color-gul-50);
   box-shadow: 0 0 0 2px var(--koral-500), 3.5px 3.5px 0px 2px var(--koral-300);
-  border-radius: 3px;
+  border-radius: 2px;
   padding-block: 12px;
-  padding-inline: 40px;
+  padding-inline: 55px;
   cursor: pointer;
+}
+
+.dropbtn-arrow {
+  position: absolute;
+  top: 14px;
+  left: 8px;
 }
 
 /* Dropdown content */
@@ -68,7 +91,7 @@ header {
   width: max-content;
   right: 0;
   top: 93px;
-  border-radius: 3px;
+  border-radius: 2px;
   box-shadow: 0 0 0 2px var(--koral-500), 3.5px 3.5px 0px 2px var(--koral-300), 0px 0px 10px 0px var(--color-grey);
 }
 
