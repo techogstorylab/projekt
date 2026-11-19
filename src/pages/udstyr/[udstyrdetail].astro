@@ -43,4 +43,5 @@ export async function getStaticPaths() {
 const { udstyr } = Astro.props;
 ---
 
+<img src={udstyr.image} alt={udstyr.name}>
 <h1>{udstyr.name}</h1>
